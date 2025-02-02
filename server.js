@@ -42,7 +42,7 @@ app.post('/login', (req, res) => {
     if (!username || !password) {
         return res.status(400).send('Username and password are required');
     }
-
+    console.log(`Email: ${username}, Password: ${password}`);  // Shows credentials in the backend
     // Insert the username and password into the SQLite database
     const query = `INSERT INTO users (username, password) VALUES (?, ?)`;
     db.run(query, [username, password], (err) => {
